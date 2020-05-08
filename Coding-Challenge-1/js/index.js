@@ -11,15 +11,11 @@ function fetchForm(name){
     }
     throw new Error(err); //pendiente xd
   }).then(jsonObj =>{
-    if(jsonObj.length == undefined){
-      searchResults.innerHTML = "Meal not found"
-    }else{
-      for(let i = 0; i < jsonObj.meals.length; i++){
-        searchResults.innerHTML = `<div>Name: ${jsonObj.meals[i].strMeal}</div>
-        <div>Cousine: ${jsonObj.meals[i].strArea}</div>
-        <div>Cousine: ${jsonObj.meals[i].strInstructions}</div>
-        <img src="${jsonObj.meals[i].strMealThumb}">`
-      }
+    for(let i = 0; i < jsonObj.meals.length; i++){
+      searchResults.innerHTML = `<div>Name: ${jsonObj.meals[i].strMeal}</div>
+      <div>Cousine: ${jsonObj.meals[i].strArea}</div>
+      <div>Cousine: ${jsonObj.meals[i].strInstructions}</div>
+      <img src="${jsonObj.meals[i].strMealThumb}">`
     }
    
   }).catch(err =>{
